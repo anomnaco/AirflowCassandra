@@ -1,0 +1,23 @@
+cleanup:
+  type: cassandra
+  host: dse1
+  port: 9042
+  consistencyLevel: ONE
+  username: cassandra
+  password: cassandra
+  performValidation: Y
+  keyspace: test
+  table: users
+  filter: first_name LIKE 'Mari%'
+
+validation:
+  # Should WRITETIMEs and TTLs be compared?
+  compareTimestamps: true
+  # What difference should we allow between TTLs?
+  ttlToleranceMillis: 60000
+  # What difference should we allow between WRITETIMEs?
+  writetimeToleranceMillis: 1000
+  # How many differences to fetch and print
+  failuresToFetch: 100
+  # What difference should we allow between floating point numbers?
+  floatingPointTolerance: 0.001
